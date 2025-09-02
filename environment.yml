@@ -1,11 +1,11 @@
 name: grupo-estudos-env
 channels:
-  - defaults
   - conda-forge
 dependencies:
-  - python=3.11
+  - python
   - streamlit
   - pandas
   - numpy
   - seaborn
   - plotly
+  - matplotlib
