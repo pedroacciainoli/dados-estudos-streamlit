@@ -9,6 +9,7 @@ from plotly.subplots import make_subplots
 import matplotlib.pyplot as plt
 from collections import Counter
 import re
+import os
 
 # Configuração da página
 st.set_page_config(
@@ -22,10 +23,13 @@ st.set_page_config(
 def load_data():
     """Carrega e processa os dados dos três arquivos CSV"""
     try:
+        # Obter o caminho do diretório do script
+        script_dir = os.path.dirname(__file__)
+        
         # Carregar os três arquivos
-        nivelamento = pd.read_csv('Start - BRSAO 202 AWS - NIVELAMENTO.csv')
-        aula01 = pd.read_csv('Start - BRSAO 202 AWS - AULA 01.csv')
-        aula02 = pd.read_csv('Start - BRSAO 202 AWS - AULA 02.csv')
+        nivelamento = pd.read_csv(os.path.join(script_dir, 'Start - BRSAO 202 AWS - NIVELAMENTO.csv'))
+        aula01 = pd.read_csv(os.path.join(script_dir, 'Start - BRSAO 202 AWS - AULA 01.csv'))
+        aula02 = pd.read_csv(os.path.join(script_dir, 'Start - BRSAO 202 AWS - AULA 02.csv'))
         
         # Adicionar coluna de origem
         nivelamento['Origem'] = 'Nivelamento'
